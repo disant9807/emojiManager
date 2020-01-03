@@ -1,0 +1,18 @@
+
+<div [ngClass]="{
+                  'btn-group': !vertical,
+                  'btn-group-vertical': vertical
+                }"
+     role="group"
+     aria-label="Basic example"
+>
+  <div *ngFor="let button of buttons; let i = index"
+       (click)="onClickButton(i)"
+       class="btn"
+       [ngClass]="'btn-' + button.color"
+       #buttons
+  >
+    {{button.name}}
+  </div>
+</div>
+

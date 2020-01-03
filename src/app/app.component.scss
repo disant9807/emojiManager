@@ -1,0 +1,30 @@
+.main {
+  background-color: darken(#fff, 5%);
+  &__lefMenu {
+    height: 100vh;
+    position: sticky;
+    top: 0;
+  }
+
+  &__input {
+    width: 200px;
+  }
+}
+
+.tableEmoj {
+  height: 90vh;
+  font-size: 12pt;
+  &__img {
+    width: 24px;
+    height: 24px;
+  }
+  &__action {
+    cursor: pointer;
+    opacity: 0.7;
+    &:hover {
+      transition: 0.1s;
+      opacity: 1;
+    }
+  }
+
+}

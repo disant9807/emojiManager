@@ -1,0 +1,64 @@
+<div class="main">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-2 col-sm-3 bg-white d-flex justify-content-center shadow main__lefMenu p-3">
+        <app-left-menu
+          [buttons]="buttonsLeftMenu"
+          [activeColor]="activeLeftMenu"
+          [vertical]="true"
+          (onChanged)="setActiveButton($event)"
+          (click)="clickInputEndFind()"
+        ></app-left-menu>
+      </div>
+      <div class="col-xl-10 col-sm-9">
+        <div class="d-flex justify-content-between mt-3">
+        <h3 class="my-0">{{activeLeftMenuButton.name}}</h3>
+          <div class="d-flex align-items-center">
+            <input
+              class="form-control main__input"
+              placeholder="Поиск по имени"
+              #input
+            />
+            <div (click)="clickInputFind()" class="ml-2 btn btn-success"> Поиск </div>
+            <div
+              (click)="clickInputEndFind()"
+              class="ml-2 btn btn-secondary"
+            >Сбросить</div>
+          </div>
+        </div>
+        <div class="mt-3">
+          <app-img-under
+            *ngIf="fullImgVisible"
+            [src]="srcFullImg"
+          ></app-img-under>
+          <div class="table-responsive tableEmoj">
+            <app-binding-table-array
+              *ngIf="activeLeftMenuButton.name === 'Все'"
+              [bind]="EmojiAllBindTable"
+              (Action)="clickTableEmojiAll($event)"
+              (MouseLeave)="mouseLeaveCellImg($event)"
+              (MouseOver)="mouseOverCellImg($event)"
+            >
+            </app-binding-table-array>
+            <app-binding-table-array
+              *ngIf="activeLeftMenuButton.name === 'Любимые'"
+              [bind]="EmojiStarBindTable"
+              (Action)="clickTableEmojiStar($event)"
+              (MouseLeave)="mouseLeaveCellImg($event)"
+              (MouseOver)="mouseOverCellImg($event)"
+            >
+            </app-binding-table-array>
+            <app-binding-table-array
+              *ngIf="activeLeftMenuButton.name === 'Удаленные'"
+              [bind]="EmojiDelBindTable"
+              (Action)="clickTableEmojiDel($event)"
+              (MouseLeave)="mouseLeaveCellImg($event)"
+              (MouseOver)="mouseOverCellImg($event)"
+            >
+            </app-binding-table-array>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
