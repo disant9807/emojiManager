@@ -3,9 +3,6 @@ import {style} from "../../basic/elements/style";
 export interface ITableCell {
 	content: any;
 	getElement () : style.element;
-	textColor : style.textColor;
-	color: style.color;
-	colorContent: style.color;
 	actionName: string;
 	style: Object;
 	class: String [];
@@ -15,9 +12,6 @@ export interface ITableCell {
 export class TableCell implements ITableCell {
 	content: String = '';
 	private element : style.element = style.element.div;
-	textColor : style.textColor = style.textColor.body;
-	color: style.color = style.color.transparent;
-	colorContent: style.color = style.color.transparent;
 	actionName: string = 'cell';
 	style: Object = {};
 	class: String [] = [];
@@ -34,10 +28,7 @@ export class TableCell implements ITableCell {
 
 export class TableButtonCell implements ITableCell {
 	content: String = '';
-	private element : style.element = style.element.button;
-	textColor : style.textColor = style.textColor.body;
-	color: style.color = style.color.transparent;
-	colorContent: style.color = style.color.success;
+	private element: style.element = style.element.button;
 	actionName: string = 'button';
 	style: Object = {};
 	class: String [] = [];
@@ -55,9 +46,6 @@ export class TableButtonCell implements ITableCell {
 export class TableIconCell implements ITableCell {
 	content: String = '';
 	private element : style.element = style.element.img;
-	textColor : style.textColor = style.textColor.body;
-	color: style.color = style.color.transparent;
-	colorContent: style.color = style.color.success;
 	actionName: string = 'icon';
 	style: Object = {
 		'width': '24px',
@@ -78,15 +66,12 @@ export class TableIconCell implements ITableCell {
 export class TableCellCells implements ITableCell {
 	content: ITableCell [] = [];
 	private element : style.element = style.element.repeat;
-	textColor : style.textColor = style.textColor.body;
-	color: style.color = style.color.transparent;
-	colorContent: style.color = style.color.success;
 	actionName: string = 'cellCell';
 	style: Object = {
 		'width': '24px',
 		'height': '24px'
 	};
-	class: String [] = ['ml-1', 'mr-1'];
+	class: string [] = ['ml-1', 'mr-1'];
 	indexTable: number [];
 
 	getElement(): style.element {
@@ -100,30 +85,18 @@ export class TableCellCells implements ITableCell {
 
 export class TableRow {
 	cells : ITableCell [];
-	color : style.color = style.color.transparent;
-	textColor : style.textColor = style.textColor.body;
-
 	constructor(cells : ITableCell[]) {
 		this.cells = cells;
 	}
+  class: string [] = ['ml-1', 'mr-1'];
 }
 
 export class TableColumn {
 	content: String = '';
-	textColor : style.textColor = style.textColor.body;
-	color: style.color = style.color.transparent;
-	private width: String;
-
-	setWidth (width: number) {
-		this.width = `${width}px`;
-	}
-	getWidth() : String {
-		return this.width;
-	}
-
 	constructor(content) {
 		this.content = content;
 	}
+  class: string [] = ['ml-1', 'mr-1'];
 }
 
 export class Table {

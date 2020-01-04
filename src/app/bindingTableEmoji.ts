@@ -44,12 +44,12 @@ abstract class BindTableEmoji {
 	lineSelectionTableEmoji (selected: boolean, row: any) {
 		if (row.name) {
 			let findRow = this.findRowFromEmoji(row);
-			findRow.color = selected ? style.color.success : style.color.transparent;
+			findRow.class = selected ? ['table-success'] : [];
 		} else if (!row.indexTable ) {
-			row.color = selected ? style.color.success : style.color.transparent;
+			row.class = selected ? ['table-success'] : [];
 		} else if ( row.indexTable ) {
 			let findRow = this.table.rows[row.indexTable[0]];
-			findRow.color = selected ? style.color.success : style.color.transparent;
+			findRow.class = selected ? ['table-success'] : [];
 		}
 	}
 
@@ -100,7 +100,6 @@ abstract class BindTableEmoji {
 
 export class BindTableEmojiAll extends BindTableEmoji implements IBindingTableArray{
 
-
 	constructor(arrEmoji: Emoji[]) {
 		super(arrEmoji);
 	}
@@ -137,9 +136,11 @@ export class BindTableEmojiAll extends BindTableEmoji implements IBindingTableAr
 
 			let cellCellIcon = new TableIconCell('../../assets/icon/star.png');
 			cellCellIcon.actionName = 'star';
+			cellCellIcon.class = ['tableEmoj__action'];
 
 			let cellCellIcon2= new TableIconCell('../../assets/icon/close.png');
 			cellCellIcon2.actionName = 'del';
+      cellCellIcon2.class = ['tableEmoj__action'];
 
 			let cell4 = new TableCellCells([
 				cellCellIcon,
@@ -151,7 +152,7 @@ export class BindTableEmojiAll extends BindTableEmoji implements IBindingTableAr
 			if (emojilocal.find(itemFind => {
 				return itemFind.name === item.name
 			})) {
-				row.color = style.color.success;
+				this.lineSelectionTableEmoji(true, row);
 			}
 
 			rows.push(row)
@@ -314,9 +315,10 @@ export class BindTableEmojiStar extends BindTableEmoji implements IBindingTableA
 			cell3.actionName = 'fullImg';
 			let cell4 = new TableIconCell('../../assets/icon/close.png');
 			cell4.actionName = 'return';
+      cell4.class = ['tableEmoj__action'];
 			let cellArr = [cell1, cell2, cell3, cell4];
 			let row = new TableRow(cellArr);
-			row.color = style.color.success;
+      this.lineSelectionTableEmoji(true, row);
 			rows.push(row)
 		});
 
@@ -335,7 +337,7 @@ export class BindTableEmojiStar extends BindTableEmoji implements IBindingTableA
 		cell4.actionName = 'return';
 		let cellArr = [cell1, cell2, cell3, cell4];
 		let row = new TableRow(cellArr);
-		row.color = style.color.success;
+    this.lineSelectionTableEmoji(true, row);
 		this.table.rows.push(row);
 		this.sortTable();
 

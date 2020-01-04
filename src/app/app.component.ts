@@ -94,13 +94,14 @@ export class AppComponent implements OnInit {
 
 	addEmojiStarFromAll (cell: ITableCell) {
 		let el: Emoji = this.EmojiAllBindTable.findTableArrayEl(cell); // получаем объект Emoji исходя из кликнутой в таблице ячейки
-		this.EmojiAllBindTable.lineSelectionTableEmoji(true, cell); // окрышиваем кликнутую яяейку
+		this.EmojiAllBindTable.lineSelectionTableEmoji(true, cell); // окрышиваем кликнутую ячейку
 		this.EmojiStarBindTable.addRowsTable(el); // добавляем полученный Emoji в таблицу избранное
 	}
 	addEmojiDelFromAll (cell: ITableCell) {
 		let el: Emoji = this.EmojiAllBindTable.findTableArrayEl(cell); // получаем объект Emoji исходя из кликнутой в таблице ячейки
 		this.EmojiDelBindTable.addRowsTable(el); // добавляем полученный Emoji в таблицу Удаленного
 		this.EmojiAllBindTable.dellRowsTable(cell); // удаляем кликнутую ячейку из основной таблицы
+    this.EmojiStarBindTable.dellRowsTable(cell); // удаляем кликнутую ячейку из таблицы избранного
 	}
 	dellEmojiStar (cell: ITableCell) {
 		let emoji = this.EmojiStarBindTable.findTableArrayEl(cell);

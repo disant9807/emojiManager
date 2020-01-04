@@ -1,7 +1,7 @@
 <div class="main">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-xl-2 col-sm-3 bg-white d-flex justify-content-center shadow main__lefMenu p-3">
+      <div class="col col-auto bg-white d-flex justify-content-center shadow main__lefMenu">
         <app-left-menu
           [buttons]="buttonsLeftMenu"
           [activeColor]="activeLeftMenu"
@@ -10,20 +10,23 @@
           (click)="clickInputEndFind()"
         ></app-left-menu>
       </div>
-      <div class="col-xl-10 col-sm-9">
-        <div class="d-flex justify-content-between mt-3">
-        <h3 class="my-0">{{activeLeftMenuButton.name}}</h3>
-          <div class="d-flex align-items-center">
-            <input
-              class="form-control main__input"
-              placeholder="Поиск по имени"
-              #input
-            />
-            <div (click)="clickInputFind()" class="ml-2 btn btn-success"> Поиск </div>
-            <div
-              (click)="clickInputEndFind()"
-              class="ml-2 btn btn-secondary"
-            >Сбросить</div>
+      <div class="col">
+        <div class="d-flex mt-3 align-items-center main__top">
+          <div class="bg-white main__topDesign"></div>
+          <div class="main__topFilter shadow w-100 d-flex align-items-center justify-content-between">
+            <h3 class="my-0">{{activeLeftMenuButton.name}}</h3>
+            <div class="d-flex align-items-center">
+              <input
+                class="form-control main__input"
+                placeholder="Поиск по имени"
+                #input
+              />
+              <div (click)="clickInputFind()" class="ml-2 btn btn-primary"> Поиск </div>
+              <div
+                (click)="clickInputEndFind()"
+                class="ml-2 btn btn-secondary"
+              >Сбросить</div>
+            </div>
           </div>
         </div>
         <div class="mt-3">

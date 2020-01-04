@@ -4,6 +4,32 @@
     height: 100vh;
     position: sticky;
     top: 0;
+    width: 150px;
+    padding: 40px 10px 0 10px;
+    background: linear-gradient(to bottom, #fff, darken(#fff, 3%));
+  }
+
+  &__top {
+    position: sticky;
+    top: 16px;
+    z-index: 100;
+  }
+
+  &__topFilter {
+    border-radius: 50px;
+    padding: 0 30px 0 30px;
+    background-color: #fff;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #fff, darken(#fff, 3%));
+  }
+
+  &__topDesign {
+    position: absolute;
+    width: 50px;
+    height: 70px;
+    transform: translateX(-40%);
   }
 
   &__input {
@@ -11,20 +37,3 @@
   }
 }
 
-.tableEmoj {
-  height: 90vh;
-  font-size: 12pt;
-  &__img {
-    width: 24px;
-    height: 24px;
-  }
-  &__action {
-    cursor: pointer;
-    opacity: 0.7;
-    &:hover {
-      transition: 0.1s;
-      opacity: 1;
-    }
-  }
-
-}

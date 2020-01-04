@@ -3,7 +3,7 @@
     <tr>
       <th
         *ngFor="let column of table.columns"
-        [ngClass]="[column.textColor, 'bg-' + column.color]"
+        [ngClass]="column.class"
         scope="col"
       >
         <div>{{column.content}}</div>
@@ -13,11 +13,10 @@
   <tbody>
     <tr
       *ngFor="let row of table.rows; let r = index"
-      [ngClass]="[row.textColor, 'bg-' + row.color]"
+      [ngClass]="row.class"
     >
       <td
         *ngFor="let cell of row.cells; let i = index"
-        [ngClass]="[cell.textColor, 'bg-' + cell.color]"
         [ngSwitch]="cell.getElement()"
       >
         <div
