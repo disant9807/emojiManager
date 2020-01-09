@@ -1,4 +1,4 @@
-import {style} from '../style'
+import {style} from '../style';
 
 export class Button {
 	name: string;

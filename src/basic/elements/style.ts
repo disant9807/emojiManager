@@ -1,12 +1,10 @@
-export namespace style
-{
-	export enum color
-	{
-		success = "success",
-		primary = "primary",
-		secondary = "secondary",
-		danger = "danger",
-		warning = "warning",
+export namespace style {
+	export enum color {
+		success = 'success',
+		primary = 'primary',
+		secondary = 'secondary',
+		danger = 'danger',
+		warning = 'warning',
 		transparent = 'transparent'
 	}
 
@@ -17,23 +15,20 @@ export namespace style
 		success = 'text-success'
 	}
 
-	export enum size
-	{
-		lg = "lg",
-		sm = "sm",
-		default = ""
+	export enum size {
+		lg = 'lg',
+		sm = 'sm',
+		default = ''
 	}
 
-	export enum width
-	{
+	export enum width {
 		full = 'w-100',
 		threeFour = 'w-75',
 		half = 'w-50',
 		oneFourth = 'w-25'
 	}
 
-	export enum justify
-	{
+	export enum justify {
 		center = 'justify-content-center',
 		start = 'justify-content-start',
 		end = 'justify-content-end',
@@ -41,8 +36,7 @@ export namespace style
 		around = 'justify-content-around'
 	}
 
-	export enum element
-	{
+	export enum element {
 		div = 'div',
 		img = 'img',
 		p = 'p',

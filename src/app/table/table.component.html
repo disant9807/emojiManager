@@ -1,80 +1,80 @@
 <table class="table">
   <thead>
-    <tr>
-      <th
-        *ngFor="let column of table.columns"
-        [ngClass]="column.class"
-        scope="col"
-      >
-        <div>{{column.content}}</div>
-      </th>
-    </tr>
+  <tr>
+    <th
+      *ngFor="let column of table.columns"
+      [ngClass]="column.class"
+      scope="col"
+    >
+      <div>{{column.content}}</div>
+    </th>
+  </tr>
   </thead>
   <tbody>
-    <tr
-      *ngFor="let row of table.rows; let r = index"
-      [ngClass]="row.class"
+  <tr
+    *ngFor="let row of table.rows; let r = index"
+    [ngClass]="row.class"
+  >
+    <td
+      *ngFor="let cell of row.cells; let i = index"
+      [ngSwitch]="cell.getElement()"
     >
-      <td
-        *ngFor="let cell of row.cells; let i = index"
-        [ngSwitch]="cell.getElement()"
+      <div
+        (click)="click(cell, [r, i])"
+        *ngSwitchCase="styleElem.div"
+        [ngStyle]="cell.style"
+        [ngClass]="cell.class"
+      >{{cell.content}}</div>
+      <button
+        (click)="click(cell, [r, i])"
+        class="ml-1 btn btn-success btn-sm"
+        *ngSwitchCase="styleElem.button"
+        [ngStyle]="cell.style"
+        [ngClass]="cell.class"
+      >{{cell.content}}</button>
+      <img
+        (mouseover)="mouseOver(cell, [r, i])"
+        (mouseleave)="mouseLeave(cell, [r, i])"
+        (click)="click(cell, [r, i])"
+        *ngSwitchCase="styleElem.img"
+        [ngStyle]="cell.style"
+        [ngClass]="cell.class"
+        [src]="cell.content"
+      />
+      <div
+        *ngSwitchCase="styleElem.repeat"
+        class="d-flex"
       >
         <div
-          (click)="click(cell, [r, i])"
-          *ngSwitchCase="styleElem.div"
-          [ngStyle]="cell.style"
+          *ngFor="let cellMini of cell.content; let u = index"
+          [ngSwitch]="cellMini.getElement()"
           [ngClass]="cell.class"
-        >{{cell.content}}</div>
-        <button
-          (click)="click(cell, [r, i])"
-          class="ml-1 btn btn-success btn-sm"
-          *ngSwitchCase="styleElem.button"
-          [ngStyle]="cell.style"
-          [ngClass]="cell.class"
-        >{{cell.content}}</button>
-        <img
-          (mouseover)="mouseOver(cell, [r, i])"
-          (mouseleave)="mouseLeave(cell, [r, i])"
-          (click)="click(cell, [r, i])"
-          *ngSwitchCase="styleElem.img"
-          [ngStyle]="cell.style"
-          [ngClass]="cell.class"
-          [src]="cell.content"
-        />
-        <div
-          *ngSwitchCase="styleElem.repeat"
-          class="d-flex"
         >
           <div
-            *ngFor="let cellMini of cell.content; let u = index"
-            [ngSwitch]="cellMini.getElement()"
-            [ngClass]="cell.class"
-          >
-            <div
-              (click)="click(cellMini,[r, i, u])"
-              *ngSwitchCase="styleElem.div"
-              [ngStyle]="cellMini.style"
-              [ngClass]="cellMini.class"
-            >{{cell.content}}</div>
-            <button
-              (click)="click(cellMini,[r, i, u])"
-              class="btn btn-success btn-sm"
-              *ngSwitchCase="styleElem.button"
-              [ngStyle]="cellMini.style"
-              [ngClass]="cellMini.class"
-            >{{cell.content}}</button>
-            <img
-              (mouseover)="mouseOver(cell, [r, i, u])"
-              (mouseleave)="mouseLeave(cell, [r, i, u])"
-              (click)="click(cellMini,[r, i, u])"
-              *ngSwitchCase="styleElem.img"
-              [ngStyle]="cellMini.style"
-              [ngClass]="cellMini.class"
-              [src]="cellMini.content"
-            />
-          </div>
+            (click)="click(cellMini,[r, i, u])"
+            *ngSwitchCase="styleElem.div"
+            [ngStyle]="cellMini.style"
+            [ngClass]="cellMini.class"
+          >{{cell.content}}</div>
+          <button
+            (click)="click(cellMini,[r, i, u])"
+            class="btn btn-success btn-sm"
+            *ngSwitchCase="styleElem.button"
+            [ngStyle]="cellMini.style"
+            [ngClass]="cellMini.class"
+          >{{cell.content}}</button>
+          <img
+            (mouseover)="mouseOver(cell, [r, i, u])"
+            (mouseleave)="mouseLeave(cell, [r, i, u])"
+            (click)="click(cellMini,[r, i, u])"
+            *ngSwitchCase="styleElem.img"
+            [ngStyle]="cellMini.style"
+            [ngClass]="cellMini.class"
+            [src]="cellMini.content"
+          />
         </div>
-      </td>
-    </tr>
+      </div>
+    </td>
+  </tr>
   </tbody>
 </table>

@@ -1,15 +1,15 @@
-import {Table} from "../table/table";
+import {Table} from '../table/table';
 
 export interface IBindingTableArray {
-	arrayBind : any[];
+	arrayBind: any[];
 	table: Table;
-	
+
 	generateTable();
 
-	addRowsTable(_object: any);
+	addRowsTable(object: any);
 
-	dellRowsTable(_object: any);
+	dellRowsTable(object: any);
 
-	findTableArrayEl(_object: any);
+	findTableArrayEl(object: any);
 
 }

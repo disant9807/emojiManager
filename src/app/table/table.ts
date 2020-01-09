@@ -1,8 +1,10 @@
-import {style} from "../../basic/elements/style";
+import {style} from '../../basic/elements/style';
 
 export interface ITableCell {
 	content: any;
-	getElement () : style.element;
+
+	getElement(): style.element;
+
 	actionName: string;
 	style: Object;
 	class: String [];
@@ -11,17 +13,17 @@ export interface ITableCell {
 
 export class TableCell implements ITableCell {
 	content: String = '';
-	private element : style.element = style.element.div;
+	private element: style.element = style.element.div;
 	actionName: string = 'cell';
 	style: Object = {};
 	class: String [] = [];
 	indexTable: number [];
 
 	getElement(): style.element {
-		return this.element
+		return this.element;
 	}
 
-	constructor(content: String){
+	constructor(content: String) {
 		this.content = content;
 	}
 }
@@ -35,17 +37,17 @@ export class TableButtonCell implements ITableCell {
 	indexTable: number [];
 
 	getElement(): style.element {
-		return this.element
+		return this.element;
 	}
 
-	constructor(content: String){
+	constructor(content: String) {
 		this.content = content;
 	}
 }
 
 export class TableIconCell implements ITableCell {
 	content: String = '';
-	private element : style.element = style.element.img;
+	private element: style.element = style.element.img;
 	actionName: string = 'icon';
 	style: Object = {
 		'width': '24px',
@@ -55,17 +57,17 @@ export class TableIconCell implements ITableCell {
 	indexTable: number [];
 
 	getElement(): style.element {
-		return this.element
+		return this.element;
 	}
 
-	constructor(content: String){
+	constructor(content: String) {
 		this.content = content;
 	}
 }
 
 export class TableCellCells implements ITableCell {
 	content: ITableCell [] = [];
-	private element : style.element = style.element.repeat;
+	private element: style.element = style.element.repeat;
 	actionName: string = 'cellCell';
 	style: Object = {
 		'width': '24px',
@@ -75,28 +77,32 @@ export class TableCellCells implements ITableCell {
 	indexTable: number [];
 
 	getElement(): style.element {
-		return this.element
+		return this.element;
 	}
 
-	constructor(content: ITableCell []){
+	constructor(content: ITableCell []) {
 		this.content = content;
 	}
 }
 
 export class TableRow {
-	cells : ITableCell [];
-	constructor(cells : ITableCell[]) {
+	cells: ITableCell [];
+
+	constructor(cells: ITableCell[]) {
 		this.cells = cells;
 	}
-  class: string [] = ['ml-1', 'mr-1'];
+
+	class: string [] = ['ml-1', 'mr-1'];
 }
 
 export class TableColumn {
 	content: String = '';
+
 	constructor(content) {
 		this.content = content;
 	}
-  class: string [] = ['ml-1', 'mr-1'];
+
+	class: string [] = ['ml-1', 'mr-1'];
 }
 
 export class Table {
